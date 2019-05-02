@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Hide Your Info{% endblock %}
+
+{% block content %}
+    <h3>
+        <p>Please, use the following form to put your information:</p>
+    </h3>
+    <textarea id="raw_information" autofocus></textarea>
+    <textarea id="hide_information" readonly>{{ text }}</textarea>
+    <form action="." method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="button" value="Hide Info"></p>
+    </form>
+{% endblock %}
