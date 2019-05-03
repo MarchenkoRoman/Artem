@@ -5,5 +5,5 @@ from . import views
 app_name = 'hide_information'
 
 urlpatterns = [
-    path('', views.hide_info, name='hide_info'),
+    path('', views.get_info, name='get_info'),
 ]
