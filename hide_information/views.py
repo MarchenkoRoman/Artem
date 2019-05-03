@@ -4,7 +4,7 @@ from .forms import TranslationForm
 
 
 def hide_info(request):
-    text = 'xxx'
+
     if request.method == 'POST':
         form = TranslationForm(request.POST)
         if form.is_valid():
@@ -12,4 +12,4 @@ def hide_info(request):
 
         args = {'form': form, 'text': text}
 
-    return render(request, 'translator/translator.html', {'text': text})
+    return render(request, 'translator/translator.html', )
