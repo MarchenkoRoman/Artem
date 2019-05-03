@@ -6,9 +6,14 @@
     <h3>
         <p>Please, use the following form to put your information:</p>
     </h3>
-    <textarea id="raw_information" autofocus></textarea>
-    <textarea id="hide_information" readonly>{{ text }}</textarea>
-    <form action="." method="post">
-        <p><input type="button" value="Hide Info"></p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input id="digits_to_hide" type="number" name="digits_to_hide" value="{{ digits }}">
+        <input id="mask_char" type="text" name="mask_char" value="{{ mask }}">
+        <textarea id="raw_information" autofocus name="raw_information">{{ text_raw }}</textarea>
+        <textarea id="hide_information" readonly>{{ text_hidden }}</textarea>
+        {% comment %}<input id="text" type="text" name="text">{% endcomment %}
+        <p><input type="submit" value="Hide Info"></p>
     </form>
 {% endblock %}
